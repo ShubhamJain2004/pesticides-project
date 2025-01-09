@@ -11,8 +11,9 @@ const Services = () => {
           <span className='primaryText'>Popular Services</span>
         </div>
         <hr/>
-        <div className='flexCenter s-card ' >
-        <Card className='Crd' style={{border:'none'}}>
+    <div className='flexCenter s-card ' >
+
+    <Card className='Crd' style={{border:'none'}}>
     <Card.Img className="card-img" variant="top" src="./card1.jpg" />
     <Card.Body>
       <Card.Title>General Pest Control Service</Card.Title>

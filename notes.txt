@@ -1,5 +1,4 @@
-{
-  "name": "pesticides",
+"name": "pesticides",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,7 +13,7 @@
     "react-icons": "^5.4.0",
     "react-outside-click-handler": "^1.3.0",
     "react-router-dom": "^7.1.1",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^3.0.1",
     "web-vitals": "^4.2.4"
   },
   "scripts": {

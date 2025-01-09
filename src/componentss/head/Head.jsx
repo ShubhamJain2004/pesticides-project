@@ -25,7 +25,7 @@ function Head() {
             src="./flogo.png"
             alt="logo"
             width={160}
-            height={90}
+            height={100}
             className="logo"
           />
           </Link>
