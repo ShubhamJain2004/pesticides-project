@@ -41,7 +41,7 @@ function Head() {
               style={getMenuStyles(MenuOpened)}
             >
               <Nav.Link href="/Home" >
-                <Link to="/Home" style={{color:"white",textDecoration:"none"}}>Home</Link>
+                <Link to="/" style={{color:"white",textDecoration:"none"}}>Home</Link>
               </Nav.Link>
 
               <Nav.Link href="/Aboutus">
