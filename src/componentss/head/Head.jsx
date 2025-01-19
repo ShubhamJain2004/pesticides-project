@@ -1,3 +1,4 @@
+import AuthPage from "../AuthPage/AuthPage";
 import React, { useState } from "react";
 import { Container, Nav, Navbar, NavDropdown, NavLink } from "react-bootstrap";
 import "./Head.css";
@@ -9,6 +10,7 @@ import { Link } from "react-router-dom";
 
 function Head() {
   const [MenuOpened, setMenuOpened] = useState(false);
+  const [isAuthDropdownOpen, setIsAuthDropdownOpen] = useState(false);   //// NEW STATE for dropdown
 
   const getMenuStyles = (MenuOpened) => {
     if (document.documentElement.clientWidth <= 800) {
@@ -25,7 +27,7 @@ function Head() {
             src="./flogo.png"
             alt="logo"
             width={160}
-            height={90}
+            height={100}
             className="logo"
           />
           </Link>
@@ -41,7 +43,7 @@ function Head() {
               style={getMenuStyles(MenuOpened)}
             >
               <Nav.Link href="/Home" >
-                <Link to="/Home" style={{color:"white",textDecoration:"none"}}>Home</Link>
+                <Link to="/" style={{color:"white",textDecoration:"none"}}>Home</Link>
               </Nav.Link>
 
               <Nav.Link href="/Aboutus">
@@ -70,20 +72,16 @@ function Head() {
               </Nav.Link>
 
               <Nav.Link>
-                <Dropdown as={NavItem}>
+              <Dropdown as={NavItem} show={isAuthDropdownOpen} onToggle={() => setIsAuthDropdownOpen(!isAuthDropdownOpen)}>
                   <Dropdown.Toggle as={NavLink}>
-                    <Link to="/User" style={{color:"white",textDecoration:"none"}}>User</Link>
+                    <span style={{ color: "white", textDecoration: "none" }}>User</span>
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <NavDropdown.Item href="">
-                      <Link to="/Login/Signup" style={{color:"Black"}}>Login/Signup</Link>
-                    </NavDropdown.Item>
-
-                    <NavDropdown.Item href="">
-                      <Link to="/Logout" style={{color:"Black"}}>Logout</Link>
-                    </NavDropdown.Item>
+                    <div className="auth-dropdown">
+                      <AuthPage onClose={() => setIsAuthDropdownOpen(false)} />
+                    </div>
                   </Dropdown.Menu>
-                </Dropdown>
+              </Dropdown>
               </Nav.Link>
 
               <button className="button">

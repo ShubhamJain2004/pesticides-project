@@ -26,9 +26,7 @@ const Footer = () => {
                 <FaSquareInstagram size={35} style={{margin:"0 1.3rem"}}/> 
                 <FaFacebookSquare size={35} style={{margin:"0 1.2rem 0 0"}}/>
                 <FaSquareTwitter size={35} />
-</span>
-                
-
+                </span>
             </div>
 
             {/*right-side*/}
