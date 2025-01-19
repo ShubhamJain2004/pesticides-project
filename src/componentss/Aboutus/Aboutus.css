@@ -1,0 +1,64 @@
+/* Aboutus.css */
+.aboutus-container {
+    background-color: #ffffff;
+    color: #333333;
+  }
+  
+  .aboutus-heading {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .aboutus-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .aboutus-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .aboutus-content-text {
+    margin-bottom: 1rem;
+  }
+  
+  .aboutus-vision {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .aboutus-choose {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .aboutus-feature {
+    padding: 2rem 2.5rem;
+    border: 1px solid #cccccc;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    font-size: 15px;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .aboutus-feature:hover {
+    background-color: #192cd9;
+    color: #ffffff;
+  }
+  
