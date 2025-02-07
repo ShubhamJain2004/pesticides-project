@@ -1,7 +1,13 @@
 // in this file all the user realted routes are there
 
-import express from 'express';
-import {isAuth} from "../middlewares/isAuth.js"
+import express from "express";
+import { isAuth } from "../middlewares/isAuth.js";
+import {
+  loginUser,
+  logoutUser,
+  myProfile,
+  registerUser,
+} from "../controllers/userControllers.js";
 
 const router = express.Router();
 
