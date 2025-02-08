@@ -1,0 +1,94 @@
+.register-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.register-card {
+  background-color: black;
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.register-title {
+  font-size: 1.875rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.register-form {
+  margin-top: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: black;
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.auth-input:focus {
+  background-color: #222;
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.auth-btn:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.login-link a {
+  font-size: 0.875rem;
+  color: #a0a0a0;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  color: #d0d0d0;
+}
+  

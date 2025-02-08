@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -10,6 +10,11 @@ export const UserProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
   const [btnloading, setBtnLoading] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  // useEffect to call myProfile when component mounts
+  useEffect(() => {
+    myProfile();
+  }, []);
 
   // function for register user
   async function registerUser(name, email, password, navigate) {
@@ -65,12 +70,11 @@ export const UserProvider = ({ children }) => {
   async function myProfile() {
     try {
       const { data } = await axios.get("/api/user/me");
-
       setUser(data);
       setIsAuth(true);
       setLoading(false);
     } catch (error) {
-      toast.error(error.response.data.message);
+      // Don't show error toast for initial load
       setIsAuth(false);
       setLoading(false);
     }
@@ -94,10 +98,10 @@ export const UserProvider = ({ children }) => {
         registerUser,
         user,
         isAuth,
-        btnLoading,
         loading,
         loginUser,
         logoutUser,
+        isLoading: btnloading,
       }}
     >
         {children}
