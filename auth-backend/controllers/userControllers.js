@@ -10,6 +10,11 @@ export const registerUser = TryCatch(async (req, res) => {
   // get the data from req.body
   const { name, email, password } = req.body;
 
+  // check for all feilds
+  if (!name || !email || !password) {
+    return res.status(400).send("All fields are required");
+  }
+
   // find the user based on email and store it to variable
   let user = await User.findOne({ email });
 
@@ -46,6 +51,10 @@ export const loginUser = TryCatch(async (req, res) => {
 
   const { email, password } = req.body;
 
+  // check for all feilds
+  if (!email || !password) {
+    return res.status(400).send("All fields are required");
+  }
   // find the user basis on email
   const user = await User.findOne({ email });
 
