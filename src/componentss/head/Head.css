@@ -24,7 +24,7 @@
 
 /* Active link styling */
 .h-menu a.active-nav {
-    color: #a4ff9c !important; /* Highlight color when active */
+    color: #7bfc6f !important; /* Highlight color when active */
     font-weight: bold;
     padding-bottom: 5px;
 }
