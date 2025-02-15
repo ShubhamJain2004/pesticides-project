@@ -111,6 +111,15 @@ function Head() {
                 </Link>
               </Nav.Link>
 
+              <Nav.Link href="Store">
+                <Link
+                  to="/Store"
+                  className={isActive("/Store") ? "active-nav" : ""}
+                  style={{ textDecoration: "none" }}
+                >
+                  Store
+                </Link>
+              </Nav.Link>
 
           <Nav.Link>
             <Dropdown
