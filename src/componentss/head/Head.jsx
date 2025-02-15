@@ -6,11 +6,15 @@ import Dropdown from "react-bootstrap/Dropdown";
 import NavItem from "react-bootstrap/NavItem";
 import OutsideClickHandler from "react-outside-click-handler";
 import { BiMenuAltRight } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Head() {
   const [MenuOpened, setMenuOpened] = useState(false);
   const [isAuthDropdownOpen, setIsAuthDropdownOpen] = useState(false);
+  const location = useLocation(); // Get the current URL path
+
+  // Function to determine active link
+  const isActive = (path) => location.pathname === path;
 
   const getMenuStyles = (MenuOpened) => {
     if (document.documentElement.clientWidth <= 800) {
@@ -44,7 +48,11 @@ function Head() {
               style={getMenuStyles(MenuOpened)}
             >
               <Nav.Link href="/Home">
-                <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+                <Link
+                  to="/"
+                  className={isActive("/") ? "active-nav" : ""}
+                  style={{ textDecoration: "none" }}
+                >
                   Home
                 </Link>
               </Nav.Link>
@@ -52,9 +60,10 @@ function Head() {
               <Nav.Link href="/Aboutus">
                 <Link
                   to="/Aboutus"
-                  style={{ color: "white", textDecoration: "none" }}
+                  className={isActive("/Aboutus") ? "active-nav" : ""}
+                  style={{ textDecoration: "none" }}
                 >
-                  Aboutus
+                  About Us
                 </Link>
               </Nav.Link>
 
@@ -63,19 +72,28 @@ function Head() {
                   <Dropdown.Toggle as={NavLink}>
                     <Link
                       to="/MainServices"
-                      style={{ color: "white", textDecoration: "none" }}
+                      className={isActive("/MainServices") ? "active-nav" : ""}
+                      style={{ textDecoration: "none" }}
                     >
                       Services
                     </Link>
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <NavDropdown.Item href="ResidentialServices">
-                      <Link to="/Residential" style={{ color: "Black" }}>
+                    <NavDropdown.Item>
+                      <Link
+                        to="/Residential"
+                        className={isActive("/Residential") ? "active-nav" : ""}
+                        style={{ color: "Black" }}
+                      >
                         Residential
                       </Link>
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="CommercialServices">
-                      <Link to="/Commercial" style={{ color: "Black" }}>
+                    <NavDropdown.Item>
+                      <Link
+                        to="/Commercial"
+                        className={isActive("/Commercial") ? "active-nav" : ""}
+                        style={{ color: "Black" }}
+                      >
                         Commercial
                       </Link>
                     </NavDropdown.Item>
@@ -86,49 +104,59 @@ function Head() {
               <Nav.Link href="Vendors">
                 <Link
                   to="/Vendors"
-                  style={{ color: "white", textDecoration: "none" }}
+                  className={isActive("/Vendors") ? "active-nav" : ""}
+                  style={{ textDecoration: "none" }}
                 >
                   Vendors
                 </Link>
               </Nav.Link>
 
-              <Nav.Link>
-                <Dropdown
-                  as={NavItem}
-                  show={isAuthDropdownOpen}
-                  onToggle={() => setIsAuthDropdownOpen(!isAuthDropdownOpen)}
+
+          <Nav.Link>
+            <Dropdown
+              as={NavItem}
+              show={isAuthDropdownOpen}
+              onToggle={() => setIsAuthDropdownOpen(!isAuthDropdownOpen)}
+            >
+              <Dropdown.Toggle as={NavLink}>
+                <span
+                  className={isActive("/User") || isAuthDropdownOpen ? "active-nav" : ""}
+                  style={{ textDecoration: "none" }}
                 >
-                  <Dropdown.Toggle as={NavLink}>
-                    <span style={{ color: "white", textDecoration: "none" }}>
-                      User
-                    </span>
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <div className="auth-dropdown">
-                      <AuthPage onClose={() => setIsAuthDropdownOpen(false)} />
-                    </div>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Nav.Link>
+                  User
+                </span>
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <div className="auth-dropdown">
+                  <AuthPage onClose={() => setIsAuthDropdownOpen(false)} />
+                </div>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Nav.Link>
 
-              <button className="button">
-                <Nav.Link href="">
-                  <Link to="" style={{ textDecoration: "none" }}>
-                    Contactus
-                  </Link>
-                </Nav.Link>
-              </button>
-            </div>
-          </OutsideClickHandler>
-
-          <div
-            className="menu-icon"
-            onClick={() => setMenuOpened((prev) => !prev)}
-          >
-            <BiMenuAltRight size={30} />
-          </div>
+          <button className="button">
+            <Nav.Link href="">
+              <Link
+                to=""
+                className={isActive("/Contactus") ? "active-nav" : ""}
+                style={{ textDecoration: "none" }}
+              >
+                Contact Us
+              </Link>
+            </Nav.Link>
+          </button>
         </div>
-      </section>
+      </OutsideClickHandler>
+
+      <div
+        className="menu-icon"
+        onClick={() => setMenuOpened((prev) => !prev)}
+      >
+        <BiMenuAltRight size={30} />
+      </div>
+
+    </div >
+      </section >
     </>
   );
 }

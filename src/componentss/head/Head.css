@@ -16,6 +16,23 @@
     align-items: center; /* Center items vertically */
 }
 
+/* Default navbar link color */
+.h-menu a {
+    color: white; /* Set text color to white */
+    text-decoration: none;
+}
+
+/* Active link styling */
+.h-menu a.active-nav {
+    color: #a4ff9c !important; /* Highlight color when active */
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+/* Hover effect for better visibility */
+.h-menu a:hover {
+    color: #f1f1f1; /* Light gray on hover */
+}
 
 .h-container {
     justify-content: space-between;
