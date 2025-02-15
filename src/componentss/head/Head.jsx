@@ -10,27 +10,28 @@ import { Link } from "react-router-dom";
 
 function Head() {
   const [MenuOpened, setMenuOpened] = useState(false);
-  const [isAuthDropdownOpen, setIsAuthDropdownOpen] = useState(false);   //// NEW STATE for dropdown
+  const [isAuthDropdownOpen, setIsAuthDropdownOpen] = useState(false);
 
   const getMenuStyles = (MenuOpened) => {
     if (document.documentElement.clientWidth <= 800) {
       return { right: !MenuOpened && "-100%" };
     }
   };
+
   return (
     <>
-      <section className="h-wrapper">
+      <section className="h-wrapper sticky-navbar">
         <div className="flexCenter paddings innerwidth h-container">
-        <Navbar.Brand href="/Home">
-        <Link to="/Home">
-        <img
-            src="./flogo.png"
-            alt="logo"
-            width={160}
-            height={100}
-            className="logo"
-          />
-          </Link>
+          <Navbar.Brand href="/Home">
+            <Link to="/Home">
+              <img
+                src="./flogo.png"
+                alt="logo"
+                width={160}
+                height={100}
+                className="logo"
+              />
+            </Link>
           </Navbar.Brand>
 
           <OutsideClickHandler
@@ -42,55 +43,84 @@ function Head() {
               className="flexCenter h-menu"
               style={getMenuStyles(MenuOpened)}
             >
-              <Nav.Link href="/Home" >
-                <Link to="/" style={{color:"white",textDecoration:"none"}}>Home</Link>
+              <Nav.Link href="/Home">
+                <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+                  Home
+                </Link>
               </Nav.Link>
 
               <Nav.Link href="/Aboutus">
-                <Link to="/Aboutus" style={{color:"white",textDecoration:"none"}}>Aboutus</Link>
+                <Link
+                  to="/Aboutus"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  Aboutus
+                </Link>
               </Nav.Link>
 
               <Nav.Link>
                 <Dropdown as={NavItem}>
                   <Dropdown.Toggle as={NavLink}>
-                    <Link to="/MainServices" style={{color:"white",textDecoration:"none"}}>Services</Link>
+                    <Link
+                      to="/MainServices"
+                      style={{ color: "white", textDecoration: "none" }}
+                    >
+                      Services
+                    </Link>
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <NavDropdown.Item href="ResidentialServices">
-                      <Link to="/Residential" style={{color:"Black"}}>Residential</Link>
+                      <Link to="/Residential" style={{ color: "Black" }}>
+                        Residential
+                      </Link>
                     </NavDropdown.Item>
-
                     <NavDropdown.Item href="CommercialServices">
-                      <Link to="/Commercial" style={{color:"Black"}}>Commercial</Link>
+                      <Link to="/Commercial" style={{ color: "Black" }}>
+                        Commercial
+                      </Link>
                     </NavDropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </Nav.Link>
 
               <Nav.Link href="Vendors">
-                <Link to="/Vendors" style={{color:"white",textDecoration:"none"}}>Vendors</Link>
+                <Link
+                  to="/Vendors"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  Vendors
+                </Link>
               </Nav.Link>
 
               <Nav.Link>
-              <Dropdown as={NavItem} show={isAuthDropdownOpen} onToggle={() => setIsAuthDropdownOpen(!isAuthDropdownOpen)}>
+                <Dropdown
+                  as={NavItem}
+                  show={isAuthDropdownOpen}
+                  onToggle={() => setIsAuthDropdownOpen(!isAuthDropdownOpen)}
+                >
                   <Dropdown.Toggle as={NavLink}>
-                    <span style={{ color: "white", textDecoration: "none" }}>User</span>
+                    <span style={{ color: "white", textDecoration: "none" }}>
+                      User
+                    </span>
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <div className="auth-dropdown">
                       <AuthPage onClose={() => setIsAuthDropdownOpen(false)} />
                     </div>
                   </Dropdown.Menu>
-              </Dropdown>
+                </Dropdown>
               </Nav.Link>
 
               <button className="button">
                 <Nav.Link href="">
-                  <Link to="" style={{textDecoration:"none"}}>Contactus</Link>
+                  <Link to="" style={{ textDecoration: "none" }}>
+                    Contactus
+                  </Link>
                 </Nav.Link>
               </button>
             </div>
           </OutsideClickHandler>
+
           <div
             className="menu-icon"
             onClick={() => setMenuOpened((prev) => !prev)}
