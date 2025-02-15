@@ -5,6 +5,7 @@ import Services from './componentss/Services/Services.jsx';
 import Hero from './componentss/Hero/Hero.jsx';
 import Home from './componentss/Home/Home.jsx';
 import Vendors from './componentss/Vendors/Vendors.jsx';
+import Store from './componentss/Store/Store.jsx';  // Update the path based on your project structure
 import Contact from './componentss/Contact/Contact.jsx';
 import Getstarted from './componentss/Getstarted/Getstarted.jsx';
 import Footer from './componentss/Footer/Footer.jsx';
@@ -32,6 +33,7 @@ function App() {
     <Route  path='/Residential' element={< Residentialservices/>}/>
     <Route  path='/Commercial' element={< Commercialservices/>}/>
     <Route  path='/Vendors' element={< Vendors/>}/>
+    <Route  path='/Store' element={< Store/>}/>
    
 
     </Routes>
